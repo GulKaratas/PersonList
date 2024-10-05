@@ -10,6 +10,7 @@
 		55A1EC602CAAEA5100F04773 /* KisiKayit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1EC5F2CAAEA5100F04773 /* KisiKayit.swift */; };
 		55A1EC622CAAEA7500F04773 /* KisiDetay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1EC612CAAEA7500F04773 /* KisiDetay.swift */; };
 		55A1EC642CAAEA8100F04773 /* Kisiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1EC632CAAEA8100F04773 /* Kisiler.swift */; };
+		55A1EC672CB1650F00F04773 /* KisilerHucre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1EC662CB1650F00F04773 /* KisilerHucre.swift */; };
 		55F0320A2CA8979B00FF373D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F032092CA8979B00FF373D /* AppDelegate.swift */; };
 		55F0320C2CA8979B00FF373D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0320B2CA8979B00FF373D /* SceneDelegate.swift */; };
 		55F0320E2CA8979B00FF373D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0320D2CA8979B00FF373D /* Home.swift */; };
@@ -22,6 +23,7 @@
 		55A1EC5F2CAAEA5100F04773 /* KisiKayit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisiKayit.swift; sourceTree = "<group>"; };
 		55A1EC612CAAEA7500F04773 /* KisiDetay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisiDetay.swift; sourceTree = "<group>"; };
 		55A1EC632CAAEA8100F04773 /* Kisiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kisiler.swift; sourceTree = "<group>"; };
+		55A1EC662CB1650F00F04773 /* KisilerHucre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisilerHucre.swift; sourceTree = "<group>"; };
 		55F032062CA8979B00FF373D /* PersonList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55F032092CA8979B00FF373D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55F0320B2CA8979B00FF373D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		55A1EC652CB164C300F04773 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				55A1EC662CB1650F00F04773 /* KisilerHucre.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		55F031FD2CA8979B00FF373D = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +98,7 @@
 		55F032082CA8979B00FF373D /* PersonList */ = {
 			isa = PBXGroup;
 			children = (
+				55A1EC652CB164C300F04773 /* TableView */,
 				55A1EC5A2CAAE9CC00F04773 /* Data */,
 				55A1EC592CAAE9C000F04773 /* UI */,
 				55F032092CA8979B00FF373D /* AppDelegate.swift */,
@@ -172,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55F0320E2CA8979B00FF373D /* Home.swift in Sources */,
+				55A1EC672CB1650F00F04773 /* KisilerHucre.swift in Sources */,
 				55A1EC622CAAEA7500F04773 /* KisiDetay.swift in Sources */,
 				55A1EC602CAAEA5100F04773 /* KisiKayit.swift in Sources */,
 				55F0320A2CA8979B00FF373D /* AppDelegate.swift in Sources */,

@@ -16,23 +16,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aU-n6-FAr">
-                                <rect key="frame" x="154.33333333333334" y="455" width="84.666666666666657" height="52"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Detay">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="22"/>
-                                </buttonConfiguration>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="oxb-sc-Cdt">
+                                <rect key="frame" x="0.0" y="163" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="detailsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y2Q-5f-d9w"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="EGz-93-bDx"/>
                                 </connections>
-                            </button>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bMd-mM-DOC">
+                                <rect key="frame" x="0.0" y="219.33333333333331" width="393" height="598.66666666666674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="kisilerHücre" id="WsW-4E-g0a" customClass="KisilerHucre" customModule="PersonList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WsW-4E-g0a" id="Xuz-S2-M2G">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Mok-Su-Xs8">
+                                                    <rect key="frame" x="36" y="15.666666666666664" width="59" height="69"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5Q-8d-CWM">
+                                                            <rect key="frame" x="0.0" y="0.0" width="59" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFx-dx-FWF">
+                                                            <rect key="frame" x="0.0" y="45" width="59" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="NFx-dx-FWF" firstAttribute="leading" secondItem="Mok-Su-Xs8" secondAttribute="leading" constant="16" id="3bK-A8-GFT"/>
+                                                        <constraint firstItem="U5Q-8d-CWM" firstAttribute="leading" secondItem="Mok-Su-Xs8" secondAttribute="leading" constant="16" id="SHk-WU-kK8"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Mok-Su-Xs8" firstAttribute="centerY" secondItem="Xuz-S2-M2G" secondAttribute="centerY" id="Qgg-Af-Qgy"/>
+                                                <constraint firstItem="Mok-Su-Xs8" firstAttribute="leading" secondItem="Xuz-S2-M2G" secondAttribute="leadingMargin" constant="16" id="p38-zk-Qks"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelKisiAd" destination="U5Q-8d-CWM" id="f1l-Qu-zJY"/>
+                                            <outlet property="labelKisiTel" destination="NFx-dx-FWF" id="gea-cS-kiz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1aU-n6-FAr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Bc-cc-i8Y"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1aU-n6-FAr" secondAttribute="bottom" constant="311" id="QIE-Jv-3Ik"/>
-                            <constraint firstItem="1aU-n6-FAr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="291.66666666666669" id="iVM-As-10W"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bMd-mM-DOC" secondAttribute="trailing" id="6i1-VG-AeC"/>
+                            <constraint firstItem="bMd-mM-DOC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BC3-DA-UnF"/>
+                            <constraint firstItem="bMd-mM-DOC" firstAttribute="top" secondItem="oxb-sc-Cdt" secondAttribute="bottom" id="NMo-ci-AsC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bMd-mM-DOC" secondAttribute="bottom" id="OOg-L3-rKx"/>
+                            <constraint firstItem="oxb-sc-Cdt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TJL-VA-Uj8"/>
+                            <constraint firstItem="oxb-sc-Cdt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WIW-up-1Qg"/>
+                            <constraint firstItem="oxb-sc-Cdt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eTv-XN-U4N"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Kişiler" leftItemsSupplementBackButton="YES" id="Qfk-TE-4lU">
@@ -43,6 +89,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="kisilerTableView" destination="bMd-mM-DOC" id="Fs1-N6-VSj"/>
+                        <outlet property="searchBar" destination="oxb-sc-Cdt" id="e3u-PI-Hmi"/>
                         <segue destination="9P5-rF-gok" kind="show" identifier="toDetailsVC" id="mRC-kr-dlW"/>
                     </connections>
                 </viewController>

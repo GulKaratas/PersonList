@@ -20,8 +20,8 @@ class KisiDetay: UIViewController {
 
         if let human = kisi {
 
-            human.kisiAdi = kisiAdiTextField.text
-            human.kisiTel = kisiTelTextField.text
+            kisiAdiTextField.text = human.kisiAdi
+            kisiTelTextField.text = human.kisiTel
         }
     }
     
