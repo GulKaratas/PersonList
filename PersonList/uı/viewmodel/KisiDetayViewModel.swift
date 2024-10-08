@@ -11,7 +11,7 @@ class KisiDetayViewModel {
     
     var krepo = KisilerDaoRepository()
     
-    func güncelle(kisiAdi:String,kisiTel:String,kisiId: Int){
-        krepo.güncelle(kisiAdi: kisiAdi, kisiTel: kisiTel, kisiId: kisiId)
+    func güncelle(kisiAdi:String,kisiTel:String,kisi: KisilerModel){
+        krepo.güncelle(kisiAdi: kisiAdi, kisiTel: kisiTel, kisi: kisi)
     }
 }

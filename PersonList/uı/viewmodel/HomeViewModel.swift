@@ -11,15 +11,15 @@ import RxSwift
 class HomeViewModel {
     
     var krepo = KisilerDaoRepository()
-    var kisilerListesi = BehaviorSubject<[Kisiler]>(value: [Kisiler]())
+    var kisilerListesi = BehaviorSubject<[KisilerModel]>(value: [KisilerModel]())
     
     init() {
         kisilerListesi = krepo.kisilerListesi
         kisileriYukle()
     }
     
-    func sil(kisiId:Int){
-        krepo.sil(kisiId: kisiId)
+    func sil(kisi: KisilerModel){
+        krepo.sil(kisi: kisi)
     }
     func aratma(aramaKelimesi: String) {
         krepo.aratma(aramaKelimesi: aramaKelimesi)

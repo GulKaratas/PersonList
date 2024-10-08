@@ -6,10 +6,35 @@
 //
 
 import UIKit
+import CoreData
 
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
+
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Model")
+        container.loadPersistentStores(completionHandler: { _, error in
+            if let error {
+                fatalError("Error loading persistent store: \(error)")
+            }
+        })
+        return container
+    }()
     
+    func saveContext() {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

@@ -13,7 +13,7 @@ class Home: UIViewController {
     
     @IBOutlet weak var kisilerTableView: UITableView!
     
-    var kisilerListesi = [Kisiler]()
+    var kisilerListesi = [KisilerModel]()
     
     var viewModel = HomeViewModel()
     
@@ -35,7 +35,7 @@ class Home: UIViewController {
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailsVC" {
-            if let kisi = sender as? Kisiler {
+            if let kisi = sender as? KisilerModel {
                 let gidilecekVC = segue.destination as! KisiDetay
                 gidilecekVC.kisi = kisi
             }
@@ -46,7 +46,12 @@ class Home: UIViewController {
 
 extension Home: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.aratma(aramaKelimesi: searchText)
+        if searchText == "" {
+            viewModel.kisileriYukle()
+        }else {
+            viewModel.aratma(aramaKelimesi: searchText)
+        }
+        
     }
 }
 
@@ -80,7 +85,7 @@ extension Home: UITableViewDataSource, UITableViewDelegate {
             let iptalAction = UIAlertAction(title: "İptal", style: .cancel, handler: nil)
             alert.addAction(iptalAction)
             let silAction = UIAlertAction(title: "Sil", style: .destructive) { action in
-                self.viewModel.sil(kisiId: kisi.kisiId!)
+                self.viewModel.sil(kisi: kisi)
                 
             }
             alert.addAction(silAction)

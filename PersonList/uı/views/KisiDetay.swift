@@ -13,7 +13,7 @@ class KisiDetay: UIViewController {
     
     @IBOutlet weak var kisiTelTextField: UITextField!
     
-    var kisi: Kisiler?
+    var kisi: KisilerModel?
     
     var viewModel = KisiDetayViewModel()
     
@@ -30,9 +30,10 @@ class KisiDetay: UIViewController {
 
     @IBAction func updateButton(_ sender: Any) {
         if let ka = kisiAdiTextField.text, let kt = kisiTelTextField.text, let kı = kisi {
-            viewModel.güncelle(kisiAdi: ka, kisiTel: kt, kisiId: kı.kisiId!)
+            viewModel.güncelle(kisiAdi: ka, kisiTel: kt, kisi: kı)  
         }
     }
+
    
 
 }
