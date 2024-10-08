@@ -15,6 +15,8 @@ class Home: UIViewController {
     
     var kisilerListesi = [Kisiler]()
     
+    var viewModel = HomeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -22,16 +24,13 @@ class Home: UIViewController {
         kisilerTableView.delegate = self
         kisilerTableView.dataSource = self
         
-        let k1 = Kisiler(kisiId: 1, kisiAdi: "seren", kisiTel: "03903")
-        let k2 = Kisiler(kisiId: 2, kisiAdi: "gül", kisiTel: "48948")
-        let k3 = Kisiler(kisiId: 3, kisiAdi: "fırat", kisiTel: "489098")
-        kisilerListesi.append(k1)
-        kisilerListesi.append(k2)
-        kisilerListesi.append(k3)
-        
+        _ = viewModel.kisilerListesi.subscribe(onNext: { liste in
+            self.kisilerListesi = liste
+            self.kisilerTableView.reloadData()
+        })
     }
     override func viewWillAppear(_ animated: Bool) {
-        print("Anasayfaya dönüldü")
+        viewModel.kisileriYukle()
     }
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,9 +46,10 @@ class Home: UIViewController {
 
 extension Home: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("Kişiler : \(searchText)")
+        viewModel.aratma(aramaKelimesi: searchText)
     }
 }
+
 extension Home: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return kisilerListesi.count
@@ -80,7 +80,7 @@ extension Home: UITableViewDataSource, UITableViewDelegate {
             let iptalAction = UIAlertAction(title: "İptal", style: .cancel, handler: nil)
             alert.addAction(iptalAction)
             let silAction = UIAlertAction(title: "Sil", style: .destructive) { action in
-                print("Kisi Sil : \(kisi.kisiAdi!)")
+                self.viewModel.sil(kisiId: kisi.kisiId!)
                 
             }
             alert.addAction(silAction)

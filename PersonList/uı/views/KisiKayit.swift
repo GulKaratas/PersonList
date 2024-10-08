@@ -13,6 +13,8 @@ class KisiKayit: UIViewController {
     
     @IBOutlet weak var kisiTelTextField: UITextField!
     
+    var viewModel = KisiKayitViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,13 +26,11 @@ class KisiKayit: UIViewController {
         let kt = kisiTelTextField.text!
         
         if !ka.isEmpty && !kt.isEmpty {
-            save(kisiAdi: ka, kisiTel: kt)
+            viewModel.save(kisiAdi: ka, kisiTel: kt)
         }else {
             print ("Lütfen Kişi adı ve telefon numarasını giriniz.")
             
         }
     }
-    func save(kisiAdi:String,kisiTel:String){
-        print("Kişi Adı : \(kisiAdi), Kişi Telefonu : \(kisiTel)")
-    }
+   
 }

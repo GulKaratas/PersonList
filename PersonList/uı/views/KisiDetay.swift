@@ -15,6 +15,8 @@ class KisiDetay: UIViewController {
     
     var kisi: Kisiler?
     
+    var viewModel = KisiDetayViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,11 +30,9 @@ class KisiDetay: UIViewController {
 
     @IBAction func updateButton(_ sender: Any) {
         if let ka = kisiAdiTextField.text, let kt = kisiTelTextField.text, let kı = kisi {
-            güncelle(kisiAdi: ka, kisiTel: kt, kisiId: kı.kisiId!)
+            viewModel.güncelle(kisiAdi: ka, kisiTel: kt, kisiId: kı.kisiId!)
         }
     }
-    func güncelle(kisiAdi:String,kisiTel:String,kisiId: Int){
-        print("Kişi Adı : \(kisiAdi), Kişi Telefonu : \(kisiTel), Kişi ıd : \(kisiId)")
-    }
+   
 
 }
